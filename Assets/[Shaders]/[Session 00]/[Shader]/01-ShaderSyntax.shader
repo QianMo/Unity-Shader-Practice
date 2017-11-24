@@ -78,10 +78,30 @@ Shader "ShaderPrac/Session00/01-ShaderSyntax"
 		// RenderType tag categorizes shaders into several predefined groups, e.g. is is an opaque shader, or an alpha-tested shader etc. 
 		// This is used by Shader Replacement and in some cases used to produce camera’s depth texture.
 
-		//.....................
+		// 4) DisableBatching tag
+		// Some shaders (mostly ones that do object-space vertex deformations) do not work when Draw Call Batching is used – that’s because batching transforms all geometry into world space, so “object space” is lost.
+		// DisableBatching tag can be used to incidate that. There are three possible values: 
+		// “True” (always disables batching for this shader), 
+		// “False” (does not disable batching; this is default) and “LODFading” (disable batching when LOD fading is active; mostly used on trees).
 
-		Tags {"Queue" = "Overlay" }
-		Tags { "Queue" = "Geometry+1" }
+		// 5) ForceNoShadowCasting tag
+		// If ForceNoShadowCasting tag is given and has a value of “True”, then an object that is rendered using this subshader will never cast shadows. 
+		// This is mostly useful when you are using shader replacement on transparent objects and you do not wont to inherit a shadow pass from another subshader.
+
+		// 6) IgnoreProjector tag
+		// If IgnoreProjector tag is given and has a value of “True”, then an object that uses this shader will not be affected by Projectors. 
+		// This is mostly useful on semitransparent objects, because there is no good way for Projectors to affect them.
+
+		// 7) CanUseSpriteAtlas tag
+		// Set CanUseSpriteAtlas tag to “False” if the shader is meant for sprites, and will not work when they are packed into atlases (see Sprite Packer).
+
+		// 8) PreviewType tag
+		// PreviewType indicates how the material inspector preview should display the material. 
+		// By default materials are displayed as spheres, but PreviewType can also be set to “Plane” (will display as 2D) or “Skybox” (will display as skybox).
+
+
+		//Tags {"Queue" = "Overlay" }
+		Tags {"Queue" = "Geometry+1" "ForceNoShadowCasting" = "True" "CanUseSpriteAtlas"="False"}
 
 
 
