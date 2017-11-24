@@ -99,9 +99,9 @@ Shader "ShaderPrac/Session00/01-ShaderSyntax"
 		// PreviewType indicates how the material inspector preview should display the material. 
 		// By default materials are displayed as spheres, but PreviewType can also be set to “Plane” (will display as 2D) or “Skybox” (will display as skybox).
 
-
+		// 9) Example
 		//Tags {"Queue" = "Overlay" }
-		Tags {"Queue" = "Geometry+1" "ForceNoShadowCasting" = "True" "CanUseSpriteAtlas"="False"}
+		Tags {"Queue" = "Geometry+1" "ForceNoShadowCasting" = "True" "CanUseSpriteAtlas"="False" "PreviewType" = "Plane"}
 
 
 
