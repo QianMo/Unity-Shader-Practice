@@ -103,8 +103,7 @@ Shader "ShaderPrac/Session00/01-ShaderSyntax"
 		//Tags {"Queue" = "Overlay" }
 		Tags {"Queue" = "Geometry+1" "ForceNoShadowCasting" = "True" "CanUseSpriteAtlas"="False" "PreviewType" = "Plane"}
 
-
-
+		//UsePass "Vertex111Lit/SHADOWC11ASTER"
 
 		Pass
 		{
@@ -145,8 +144,28 @@ Shader "ShaderPrac/Session00/01-ShaderSyntax"
 			// Currently the options supported by Unity are:
 			// - SoftVegetation: Render this pass only if Soft Vegetation is on in Quality Settings.
 
-			//5) Example
+			// 5) Example
 			Tags { "LightMode" = "ForwardBase" "PassFlags"="OnlyDirectional" "RequireOptions"= "SoftVegetation"}
+
+
+			//--------------------------------------------【4、Blending】---------------------------------------------------
+			// Blending is used to make transparent objects.
+			// https://docs.unity3d.com/Manual/SL-Blend.html
+			//---------------------------------------------------------------------------------------------------------------
+			// 1) Syntax
+
+			// Blend Off: Turn off blending (this is the default)
+
+			// Blend SrcFactor DstFactor: Configure and enable blending. The generated color is multiplied by the SrcFactor. The color already on screen is multiplied by DstFactor and the two are added together.
+
+			// Blend SrcFactor DstFactor, SrcFactorA DstFactorA: Same as above, but use different factors for blending the alpha channel.
+
+			// BlendOp Op: Instead of adding blended colors together, carry out a different operation on them.
+
+			// BlendOp OpColor, OpAlpha: Same as above, but use different blend operation for color (RGB) and alpha (A) channels.
+			
+
+			//Blend SrcAlpha OneMinusSrcAlpha // Traditional transparency
 
 			CGPROGRAM
 			#pragma vertex vert
